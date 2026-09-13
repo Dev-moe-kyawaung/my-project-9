@@ -1,0 +1,22 @@
+export const emailCollection = [
+  "moekyawaung@programmer.net",
+  "moekyawaung@collector.org",
+  "moekyawaung@technologist.com",
+  "moekyawaung@techie.com",
+  "moekyawaung@graphic-designer.com",
+  "moekyawaung@cybergal.com",
+  "moekyawaung@webname.com",
+  "moekyawaung@hackermail.com",
+  "moekyawaung@graduate.org",
+  "moekyawaung@engineer.com",
+  "moekyawaung@asia.com",
+  "moekyawaung@contractor.net",
+  "moekyawaung@linuxmail.org",
+  "moekyawaung@usa.com",
+  "moekyawaung@europe.com",
+  "moekyawaung@mail.com",
+  "moekyawaung@iname.com",
+  "moekyawaung@socialogist.com",
+  "moekyawaung@secretary.net",
+  "moekyawaung@publicist.com"
+];
