@@ -1,0 +1,152 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&family=Orbitron:wght@400;700;900&display=swap');
+
+:root {
+  --neon-cyan: #00f3ff;
+  --neon-pink: #ff00ff;
+  --neon-yellow: #ffd700;
+  --cyber-black: #0a0a0f;
+  --cyber-dark: #12121a;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-cyber-black text-white antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  ::selection {
+    @apply bg-cyber-cyan/30 text-white;
+  }
+}
+
+@layer components {
+  /* Cyber Clip Path Corners */
+  .cyber-clip {
+    clip-path: polygon(
+      0 10px, 10px 0, 
+      calc(100% - 10px) 0, 100% 10px, 
+      100% calc(100% - 10px), calc(100% - 10px) 100%, 
+      10px 100%, 0 calc(100% - 10px)
+    );
+  }
+  
+  .cyber-clip-sm {
+    clip-path: polygon(
+      0 6px, 6px 0, 
+      calc(100% - 6px) 0, 100% 6px, 
+      100% calc(100% - 6px), calc(100% - 6px) 100%, 
+      6px 100%, 0 calc(100% - 6px)
+    );
+  }
+  
+  /* Gradient Text */
+  .text-gradient-cyber {
+    @apply bg-gradient-to-r from-cyber-cyan via-cyber-pink to-cyber-yellow bg-clip-text text-transparent;
+  }
+  
+  .text-gradient-hero {
+    @apply bg-gradient-to-br from-white via-cyber-cyan to-cyber-violet bg-clip-text text-transparent;
+  }
+  
+  /* Glassmorphism Cyber Card */
+  .cyber-card {
+    @apply relative bg-cyber-panel/80 backdrop-blur-md border border-cyber-cyan/20 
+           cyber-clip transition-all duration-300;
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.1), inset 0 0 20px rgba(0, 243, 255, 0.05);
+  }
+  
+  .cyber-card:hover {
+    @apply border-cyber-cyan/50;
+    box-shadow: 0 0 30px rgba(0, 243, 255, 0.2), inset 0 0 30px rgba(0, 243, 255, 0.1);
+  }
+  
+  /* Light Beam Hover Effect */
+  .light-beam {
+    @apply relative overflow-hidden;
+  }
+  
+  .light-beam::before {
+    content: '';
+    @apply absolute inset-0 opacity-0 transition-opacity duration-300;
+    background: linear-gradient(
+      45deg,
+      transparent 30%,
+      rgba(0, 243, 255, 0.1) 50%,
+      transparent 70%
+    );
+    transform: translateX(-100%);
+  }
+  
+  .light-beam:hover::before {
+    @apply opacity-100;
+    animation: beam-sweep 0.6s ease-out;
+  }
+  
+  @keyframes beam-sweep {
+    to { transform: translateX(100%); }
+  }
+  
+  /* CRT Scanlines */
+  .crt::after {
+    content: " ";
+    @apply fixed inset-0 pointer-events-none z-50;
+    background: linear-gradient(
+      rgba(18, 16, 16, 0) 50%,
+      rgba(0, 0, 0, 0.25) 50%
+    );
+    background-size: 100% 4px;
+  }
+  
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-cyber-black;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-cyber-cyan/30 rounded-full border border-cyber-cyan/50;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-cyber-cyan/50;
+  }
+  
+  /* Glitch Effect on Hover */
+  .glitch-hover:hover {
+    animation: glitch 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+  
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+  
+  .animation-delay-600 {
+    animation-delay: 600ms;
+  }
+}
